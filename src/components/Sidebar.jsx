@@ -19,6 +19,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+  const URL = import.meta.env.VITE_SERVER_URL;
 
   const start = useSelector((s) => s.start);
   const second = useSelector((s) => s.second);
@@ -143,7 +144,7 @@ export default function Sidebar() {
     );
 
     try {
-      await fetch("http://localhost:3001/users", {
+      await fetch(`${URL}/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
